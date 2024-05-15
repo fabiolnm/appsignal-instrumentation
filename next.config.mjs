@@ -6,6 +6,13 @@ const nextConfig = {
     instrumentationHook: true,
     serverComponentsExternalPackages: ["@appsignal/nodejs"],
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.node$/i,
+      loader: 'node-loader',
+    })
+    return config
+  },  
 }
 
 export default nextConfig;
